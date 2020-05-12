@@ -14,5 +14,9 @@ int main(){
     }while((x < 0 || x >= 16) && (y < 0 || y >= 16));
     fp::LandBasedWheeled wheel("A",x,y);
     m.Move(wheel);
+    m.WallInit();
+    // the below 2 lines are just to check the functions. this could be removed
+    m.SetWall(200,201);
+    std::cout<<m.CheckWall(200,201)<<" "<<m.CheckWall(201,200);
     return 0;
 }

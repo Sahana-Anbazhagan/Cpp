@@ -54,3 +54,27 @@ int fp::maze::Move(LandBasedWheeled wheel)
     std::cout<<"Position of the Robot: "<<xy/16<<", "<<xy%16<<std::endl;
     return 0;
 }
+
+int fp::maze::WallInit()
+{
+    for(int i = 0; i < 256; i++)
+    {
+        for(int j = 0; j < 256; j++)
+        {
+            Wall[i][j] = 0;
+        }
+    }
+}
+
+bool fp::maze::CheckWall(int a, int b)
+{
+    if(Wall[a][b] == 0)
+        return false;
+    return true;
+}
+
+int fp::maze::SetWall(int a, int b)
+{
+    Wall[a][b] = 1;
+    Wall[b][a] = 1;
+}
